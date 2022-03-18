@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import json
 
 OFF_TOPIC = "off-topic"
 HILO = "sanchez-considera-autonomia-sahara-para-resolver-conflicto-684716"
@@ -35,4 +36,5 @@ def get_all_users(subforo, hilo):
 
 result = get_all_users(OFF_TOPIC, HILO)
 
-print(result)
+with open(f"{OFF_TOPIC}-{HILO}.json", 'w') as outfile:
+    json.dump(result, outfile)
